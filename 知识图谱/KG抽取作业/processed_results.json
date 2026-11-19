@@ -1,0 +1,664 @@
+{
+  "summary": [
+    {
+      "方案": "A_direct",
+      "论文": "P1",
+      "实体数": 10,
+      "关系类型数": 7,
+      "三元组数": 7,
+      "处理规则": "原始解析成功；无额外处理"
+    },
+    {
+      "方案": "A_direct",
+      "论文": "P2",
+      "实体数": 11,
+      "关系类型数": 7,
+      "三元组数": 7,
+      "处理规则": "原始解析成功；无额外处理"
+    },
+    {
+      "方案": "A_direct",
+      "论文": "P3",
+      "实体数": 10,
+      "关系类型数": 8,
+      "三元组数": 8,
+      "处理规则": "原始解析成功；无额外处理"
+    },
+    {
+      "方案": "A_direct",
+      "论文": "P4",
+      "实体数": 13,
+      "关系类型数": 4,
+      "三元组数": 12,
+      "处理规则": "截断响应：仅恢复完整闭合对象并精确去重；不补齐残缺对象"
+    },
+    {
+      "方案": "A_direct",
+      "论文": "P5",
+      "实体数": 9,
+      "关系类型数": 6,
+      "三元组数": 7,
+      "处理规则": "原始解析成功；无额外处理"
+    },
+    {
+      "方案": "B_evidence",
+      "论文": "P1",
+      "实体数": 9,
+      "关系类型数": 5,
+      "三元组数": 5,
+      "处理规则": "原始解析成功；无额外处理"
+    },
+    {
+      "方案": "B_evidence",
+      "论文": "P2",
+      "实体数": 14,
+      "关系类型数": 7,
+      "三元组数": 7,
+      "处理规则": "原始解析成功；无额外处理"
+    },
+    {
+      "方案": "B_evidence",
+      "论文": "P3",
+      "实体数": 7,
+      "关系类型数": 6,
+      "三元组数": 6,
+      "处理规则": "原始解析成功；无额外处理"
+    },
+    {
+      "方案": "B_evidence",
+      "论文": "P4",
+      "实体数": 12,
+      "关系类型数": 8,
+      "三元组数": 8,
+      "处理规则": "仅转义3处JSON非法反斜杠；无语义修改"
+    },
+    {
+      "方案": "B_evidence",
+      "论文": "P5",
+      "实体数": 5,
+      "关系类型数": 4,
+      "三元组数": 4,
+      "处理规则": "原始解析成功；无额外处理"
+    }
+  ],
+  "runs": [
+    {
+      "scheme": "A_direct",
+      "paper": "P1",
+      "triples": [
+        {
+          "subject": "KGGen",
+          "relation": "novel text-to-knowledge-graph generator",
+          "object": "uses language models to extract high-quality graphs from plain text",
+          "id": "A_direct-P1-T01"
+        },
+        {
+          "subject": "KGGen",
+          "relation": "entity resolution approach",
+          "object": "clusters related entities, significantly reducing the sparsity problem",
+          "id": "A_direct-P1-T02"
+        },
+        {
+          "subject": "KGGen",
+          "relation": "novel entity resolution approach",
+          "object": "clusters and de-duplicates related entities",
+          "id": "A_direct-P1-T03"
+        },
+        {
+          "subject": "MINE",
+          "relation": "benchmark to test an extractor’s ability to produce a useful KG from plain text",
+          "object": "the first benchmark to test an extractor’s ability to produce a useful KG from plain text",
+          "id": "A_direct-P1-T04"
+        },
+        {
+          "subject": "Microsoft’s GraphRAG",
+          "relation": "compared to",
+          "object": "achieves comparable retrieval accuracy on the generated graphs and better information retention",
+          "id": "A_direct-P1-T05"
+        },
+        {
+          "subject": "KGGen",
+          "relation": "graphs exhibit more concise and generalizable entities and relations",
+          "object": "graphs exhibit more concise and generalizable entities and relations",
+          "id": "A_direct-P1-T06"
+        },
+        {
+          "subject": "KGGen",
+          "relation": "code",
+          "object": "open-sourced at https://github.com/stair-lab/kg-gen/",
+          "id": "A_direct-P1-T07"
+        }
+      ],
+      "processing": "原始解析成功；无额外处理"
+    },
+    {
+      "scheme": "A_direct",
+      "paper": "P2",
+      "triples": [
+        {
+          "subject": "Inductive knowledge graph completion",
+          "relation": "task",
+          "object": "predicting missing triplets between new entities",
+          "id": "A_direct-P2-T01"
+        },
+        {
+          "subject": "inductive knowledge graph completion",
+          "relation": "assumption",
+          "object": "all entities can be new",
+          "id": "A_direct-P2-T02"
+        },
+        {
+          "subject": "inductive knowledge graph completion",
+          "relation": "restriction",
+          "object": "existing methods cannot handle real-world knowledge graphs",
+          "id": "A_direct-P2-T03"
+        },
+        {
+          "subject": "InGram",
+          "relation": "method",
+          "object": "proposed INductive knowledge GRAph eMbedding method",
+          "id": "A_direct-P2-T04"
+        },
+        {
+          "subject": "relation graph",
+          "relation": "consists of",
+          "object": "relations and the affinity weights between them",
+          "id": "A_direct-P2-T05"
+        },
+        {
+          "subject": "InGram",
+          "relation": "learns",
+          "object": "how to aggregate neighboring embeddings to generate relation and entity embeddings",
+          "id": "A_direct-P2-T06"
+        },
+        {
+          "subject": "InGram",
+          "relation": "experimental results",
+          "object": "show that InGram outperforms 14 different state-of-the-art methods on varied inductive learning scenarios",
+          "id": "A_direct-P2-T07"
+        }
+      ],
+      "processing": "原始解析成功；无额外处理"
+    },
+    {
+      "scheme": "A_direct",
+      "paper": "P3",
+      "triples": [
+        {
+          "subject": "A*Net",
+          "relation": "scalability",
+          "object": "limited by the exponential number of paths",
+          "id": "A_direct-P3-T01"
+        },
+        {
+          "subject": "A*Net",
+          "relation": "priority function",
+          "object": "learned to select important nodes and edges",
+          "id": "A_direct-P3-T02"
+        },
+        {
+          "subject": "A*Net",
+          "relation": "performance",
+          "object": "competitive with existing state-of-the-art path-based methods",
+          "id": "A_direct-P3-T03"
+        },
+        {
+          "subject": "A*Net",
+          "relation": "inference",
+          "object": "converges faster than embedding methods",
+          "id": "A_direct-P3-T04"
+        },
+        {
+          "subject": "A*Net",
+          "relation": "trade-off",
+          "object": "between performance and efficiency",
+          "id": "A_direct-P3-T05"
+        },
+        {
+          "subject": "ogbl-wikikg2",
+          "relation": "dataset",
+          "object": "million-scale",
+          "id": "A_direct-P3-T06"
+        },
+        {
+          "subject": "ogbl-wikikg2",
+          "relation": "result",
+          "object": "new state-of-the-art",
+          "id": "A_direct-P3-T07"
+        },
+        {
+          "subject": "A*Net",
+          "relation": "first",
+          "object": "path-based method for knowledge graph reasoning at such scale",
+          "id": "A_direct-P3-T08"
+        }
+      ],
+      "processing": "原始解析成功；无额外处理"
+    },
+    {
+      "scheme": "A_direct",
+      "paper": "P4",
+      "triples": [
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "struggle with",
+          "object": "hallucination problems",
+          "id": "A_direct-P4-POST01"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "perform",
+          "object": "reasoning",
+          "id": "A_direct-P4-POST02"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "introduce",
+          "object": "external knowledge graphs (KG)",
+          "id": "A_direct-P4-POST03"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "introduce",
+          "object": "Think-on-Graph (ToG)",
+          "id": "A_direct-P4-POST04"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "have",
+          "object": "better deep reasoning power",
+          "id": "A_direct-P4-POST05"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "have",
+          "object": "ability of knowledge traceability",
+          "id": "A_direct-P4-POST06"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "have",
+          "object": "ability of knowledge correctability",
+          "id": "A_direct-P4-POST07"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "have",
+          "object": "flexible plug-and-play framework",
+          "id": "A_direct-P4-POST08"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "have",
+          "object": "performance of SOTA",
+          "id": "A_direct-P4-POST09"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "have",
+          "object": "deployment and application",
+          "id": "A_direct-P4-POST10"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "have",
+          "object": "cost of LLM deployment",
+          "id": "A_direct-P4-POST11"
+        },
+        {
+          "subject": "large language models (LLMs)",
+          "relation": "have",
+          "object": "cost of LLM application",
+          "id": "A_direct-P4-POST12"
+        }
+      ],
+      "processing": "截断响应：仅恢复完整闭合对象并精确去重；不补齐残缺对象"
+    },
+    {
+      "scheme": "A_direct",
+      "paper": "P5",
+      "triples": [
+        {
+          "subject": "Foundation models (FMs)",
+          "relation": "learn from",
+          "object": "large volumes of unlabeled data",
+          "id": "A_direct-P5-T01"
+        },
+        {
+          "subject": "BioBridge",
+          "relation": "present as",
+          "object": "general-purpose retriever",
+          "id": "A_direct-P5-T02"
+        },
+        {
+          "subject": "BioBridge",
+          "relation": "achieve",
+          "object": "multimodal behavior",
+          "id": "A_direct-P5-T03"
+        },
+        {
+          "subject": "BioBridge",
+          "relation": "use",
+          "object": "Knowledge Graphs (KG)",
+          "id": "A_direct-P5-T04"
+        },
+        {
+          "subject": "BioBridge",
+          "relation": "achieve",
+          "object": "out-of-domain generalization ability",
+          "id": "A_direct-P5-T05"
+        },
+        {
+          "subject": "BioBridge",
+          "relation": "enhance",
+          "object": "guided generation of novel drugs",
+          "id": "A_direct-P5-T06"
+        },
+        {
+          "subject": "BioBridge",
+          "relation": "present",
+          "object": "code",
+          "id": "A_direct-P5-T07"
+        }
+      ],
+      "processing": "原始解析成功；无额外处理"
+    },
+    {
+      "scheme": "B_evidence",
+      "paper": "P1",
+      "triples": [
+        {
+          "subject": "KGGen",
+          "relation": "novel text-to-knowledge-graph generator",
+          "object": "uses language models to extract high-quality graphs from plain text",
+          "evidence": "We present KGGen, a novel text-to-knowledge-graph generator that uses language models to extract high-quality graphs from plain text with a novel entity resolution approach that clusters related entities, significantly reducing the sparsity problem that plagues existing extractors.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P1-T01"
+        },
+        {
+          "subject": "KGGen",
+          "relation": "clusters and de-duplicates related entities",
+          "object": "to reduce sparsity in extracted KGs",
+          "evidence": "Unlike other KG generators, KGGen clusters and de-duplicates related entities to reduce sparsity in extracted KGs.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P1-T02"
+        },
+        {
+          "subject": "MINE",
+          "relation": "benchmark to test an extractor’s ability to produce a useful KG from plain text",
+          "object": "the first benchmark to test an extractor’s ability to produce a useful KG from plain text",
+          "evidence": "Along with KGGen, we release Measure of Information in Nodes and Edges (MINE), the first benchmark to test an extractor’s ability to produce a useful KG from plain text.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P1-T03"
+        },
+        {
+          "subject": "Microsoft’s GraphRAG",
+          "relation": "compared to",
+          "object": "achieves comparable retrieval accuracy on the generated graphs and better information retention",
+          "evidence": "We benchmark our new tool against leading existing generators such as Microsoft’s GraphRAG; we achieve comparable retrieval accuracy on the generated graphs and better information retention.",
+          "evidence_verbatim": false,
+          "id": "B_evidence-P1-T04"
+        },
+        {
+          "subject": "concise and generalizable entities and relations",
+          "relation": "exhibits",
+          "object": "our graphs exhibit more concise and generalizable entities and relations",
+          "evidence": "Moreover, our graphs exhibit more concise and generalizable entities and relations.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P1-T05"
+        }
+      ],
+      "processing": "原始解析成功；无额外处理"
+    },
+    {
+      "scheme": "B_evidence",
+      "paper": "P2",
+      "triples": [
+        {
+          "subject": "Inductive knowledge graph completion",
+          "relation": "task",
+          "object": "predicting missing triplets between new entities",
+          "evidence": "Inductive knowledge graph completion has been considered as the task of predicting missing triplets between new entities that are not observed during training.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P2-T01"
+        },
+        {
+          "subject": "inductive knowledge graph completion methods",
+          "relation": "assume that all entities can be new",
+          "object": "they do not allow new relations to appear at inference time",
+          "evidence": "While most inductive knowledge graph completion methods assume that all entities can be new, they do not allow new relations to appear at inference time.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P2-T02"
+        },
+        {
+          "subject": "real-world knowledge graphs",
+          "relation": "new entities accompany new relations",
+          "object": "existing methods cannot appropriately handle",
+          "evidence": "This restriction prohibits the existing methods from appropriately handling real-world knowledge graphs where new entities accompany new relations.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P2-T03"
+        },
+        {
+          "subject": "InGram",
+          "relation": "proposes an INductive knowledge GRAph eMbedding method",
+          "object": "that can generate embeddings of new relations as well as new entities at inference time",
+          "evidence": "InGram proposes an INductive knowledge GRAph eMbedding method, InGram, that can generate embeddings of new relations as well as new entities at inference time.",
+          "evidence_verbatim": false,
+          "id": "B_evidence-P2-T04"
+        },
+        {
+          "subject": "relation graph",
+          "relation": "consists of relations and the affinity weights between them",
+          "object": "based on the relation graph and the original knowledge graph",
+          "evidence": "Given a knowledge graph, we define a relation graph as a weighted graph consisting of relations and the affinity weights between them. Based on the relation graph and the original knowledge graph, InGram learns how to aggregate neighboring embeddings to generate relation and entity embeddings using an attention mechanism.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P2-T05"
+        },
+        {
+          "subject": "attention mechanism",
+          "relation": "used to learn how to aggregate neighboring embeddings",
+          "object": "to generate relation and entity embeddings",
+          "evidence": "Based on the relation graph and the original knowledge graph, InGram learns how to aggregate neighboring embeddings to generate relation and entity embeddings using an attention mechanism.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P2-T06"
+        },
+        {
+          "subject": "state-of-the-art methods",
+          "relation": "outperform 14 different",
+          "object": "state-of-the-art methods on varied inductive learning scenarios",
+          "evidence": "Experimental results show that InGram outperforms 14 different state-of-the-art methods on varied inductive learning scenarios.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P2-T07"
+        }
+      ],
+      "processing": "原始解析成功；无额外处理"
+    },
+    {
+      "scheme": "B_evidence",
+      "paper": "P3",
+      "triples": [
+        {
+          "subject": "A*Net",
+          "relation": "method",
+          "object": "scalable path-based method for knowledge graph reasoning",
+          "evidence": "Inspired by the A* algorithm for shortest path problems, our A*Net learns a priority function to select important nodes and edges at each iteration, to reduce time and memory footprint for both training and inference.",
+          "evidence_verbatim": false,
+          "id": "B_evidence-P3-T01"
+        },
+        {
+          "subject": "A*Net",
+          "relation": "compared to",
+          "object": "existing state-of-the-art path-based methods",
+          "evidence": "Experiments on both transductive and inductive knowledge graph reasoning benchmarks show that A*Net achieves competitive performance with existing state-of-the-art path-based methods",
+          "evidence_verbatim": false,
+          "id": "B_evidence-P3-T02"
+        },
+        {
+          "subject": "A*Net",
+          "relation": "trade-off",
+          "object": "performance and efficiency",
+          "evidence": "The ratio of selected nodes and edges can be specified to trade off between performance and efficiency",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P3-T03"
+        },
+        {
+          "subject": "A*Net",
+          "relation": "achieved",
+          "object": "competitive performance",
+          "evidence": "Experiments on both transductive and inductive knowledge graph reasoning benchmarks show that A*Net achieves competitive performance with existing state-of-the-art path-based methods",
+          "evidence_verbatim": false,
+          "id": "B_evidence-P3-T04"
+        },
+        {
+          "subject": "A*Net",
+          "relation": "converged",
+          "object": "faster",
+          "evidence": "On a million-scale dataset ogbl-wikikg2, A*Net not only achieves a new state-of-the-art result, but also converges faster than embedding methods",
+          "evidence_verbatim": false,
+          "id": "B_evidence-P3-T05"
+        },
+        {
+          "subject": "A*Net",
+          "relation": "first",
+          "object": "path-based method for knowledge graph reasoning at such scale",
+          "evidence": "A*Net is the first path-based method for knowledge graph reasoning at such scale",
+          "evidence_verbatim": false,
+          "id": "B_evidence-P3-T06"
+        }
+      ],
+      "processing": "原始解析成功；无额外处理"
+    },
+    {
+      "scheme": "B_evidence",
+      "paper": "P4",
+      "triples": [
+        {
+          "subject": "LLMs",
+          "relation": "struggle with hallucination problems",
+          "object": "scenarios requiring deep and responsible reasoning",
+          "evidence": "Although large language models (LLMs) have achieved significant success in various tasks, they often struggle with hallucination problems, especially in scenarios requiring deep and responsible reasoning.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P4-POST01"
+        },
+        {
+          "subject": "external knowledge graphs (KG)",
+          "relation": "addressing LLM hallucination problems",
+          "object": "introducing",
+          "evidence": "These issues could be partially addressed by introducing external knowledge graphs (KG) in LLM reasoning.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P4-POST02"
+        },
+        {
+          "subject": "Think-on-Graph (ToG)",
+          "relation": "implementing LLM-KG integrating paradigm",
+          "object": "proposed",
+          "evidence": "In this paper, we propose a new LLM-KG integrating paradigm ``$\\hbox{LLM}\\otimes\\hbox{KG}$'' which treats the LLM as an agent to interactively explore related entities and relations on KGs and perform reasoning based on the retrieved knowledge.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P4-POST03"
+        },
+        {
+          "subject": "LLM-KG integrating paradigm",
+          "relation": "providing better deep reasoning power",
+          "object": "ToG",
+          "evidence": "We further implement this paradigm by introducing a new approach called Think-on-Graph (ToG), in which the LLM agent iteratively executes beam search on KG, discovers the most promising reasoning paths, and returns the most likely reasoning results.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P4-POST04"
+        },
+        {
+          "subject": "knowledge traceability",
+          "relation": "leveraging LLMs reasoning and expert feedback",
+          "object": "ToG",
+          "evidence": "ToG has the ability of knowledge traceability and knowledge correctability by leveraging LLMs reasoning and expert feedback.",
+          "evidence_verbatim": false,
+          "id": "B_evidence-P4-POST05"
+        },
+        {
+          "subject": "flexible plug-and-play framework",
+          "relation": "for different LLMs, KGs, and prompting strategies",
+          "object": "ToG",
+          "evidence": "ToG provides a flexible plug-and-play framework for different LLMs, KGs and prompting strategies without any additional training cost.",
+          "evidence_verbatim": false,
+          "id": "B_evidence-P4-POST06"
+        },
+        {
+          "subject": "LLM models",
+          "relation": "performing better in certain scenarios",
+          "object": "ToG",
+          "evidence": "the performance of ToG with small LLM models could exceed large LLM such as GPT-4 in certain scenarios and this reduces the cost of LLM deployment and application.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P4-POST07"
+        },
+        {
+          "subject": "datasets",
+          "relation": "achieving overall SOTA",
+          "object": "ToG",
+          "evidence": "As a training-free method with lower computational cost and better generality, ToG achieves overall SOTA in 6 out of 9 datasets where most previous SOTAs rely on additional training.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P4-POST08"
+        }
+      ],
+      "processing": "仅转义3处JSON非法反斜杠；无语义修改"
+    },
+    {
+      "scheme": "B_evidence",
+      "paper": "P5",
+      "triples": [
+        {
+          "subject": "BioBridge",
+          "relation": "achieves",
+          "object": "multimodal behavior",
+          "evidence": "BioBridge achieves it by utilizing Knowledge Graphs (KG) to learn transformations between one unimodal FM and another without fine-tuning any underlying unimodal FMs.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P5-T01"
+        },
+        {
+          "subject": "BioBridge",
+          "relation": "outperforms",
+          "object": "best baseline KG embedding methods",
+          "evidence": "Our results demonstrate that BioBridge can beat the best baseline KG embedding methods (on average by ~ 76.3%) in cross-modal retrieval tasks.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P5-T02"
+        },
+        {
+          "subject": "BioBridge",
+          "relation": "generalizes",
+          "object": "unseen modalities or relations",
+          "evidence": "We also identify BioBridge demonstrates out-of-domain generalization ability by extrapolating to unseen modalities or relations.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P5-T03"
+        },
+        {
+          "subject": "BioBridge",
+          "relation": "enhances",
+          "object": "guided generation of novel drugs",
+          "evidence": "Additionally, we also show that BioBridge presents itself as a general-purpose retriever that can aid biomedical multimodal question answering as well as enhance the guided generation of novel drugs.",
+          "evidence_verbatim": true,
+          "id": "B_evidence-P5-T04"
+        }
+      ],
+      "processing": "原始解析成功；无额外处理"
+    }
+  ],
+  "recovery_stats": [
+    {
+      "方案": "A_direct",
+      "论文": "P4",
+      "原始JSON错误": "Unterminated string starting at: line 310 column 7 (char 7856)",
+      "处理规则": "截断响应：仅恢复完整闭合对象并精确去重；不补齐残缺对象",
+      "完整闭合对象数": 61,
+      "精确重复数": 49,
+      "结构有效且去重后的三元组数": 12,
+      "实体数": 13
+    },
+    {
+      "方案": "B_evidence",
+      "论文": "P4",
+      "原始JSON错误": "Invalid \\escape: line 19 column 83 (char 907)",
+      "处理规则": "仅转义3处JSON非法反斜杠；无语义修改",
+      "完整闭合对象数": 8,
+      "精确重复数": 0,
+      "结构有效且去重后的三元组数": 8,
+      "实体数": 12
+    }
+  ]
+}

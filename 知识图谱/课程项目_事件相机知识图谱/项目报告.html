@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>事件相机三维重建论文知识图谱构建与应用项目报告</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="报告样式.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">事件相机三维重建论文知识图谱构建与应用项目报告</h1>
+</header>
+<h1
+id="事件相机三维重建论文知识图谱构建与应用项目报告">事件相机三维重建论文知识图谱构建与应用项目报告</h1>
+<h2 id="项目概述">项目概述</h2>
+<p>本项目围绕事件相机三维重建，收集并整理 20
+篇论文，建立可追溯到论文原文位置的知识图谱，在 Neo4j Aura 中导入 703
+个节点和 774
+条关系。应用部分只选两类：依据图谱实体进行研究路线分类，以及从图谱事实生成带论文来源的问答。分类在
+20 折留一论文验证中正确 14 篇；生成任务形成 20 个答案和 131
+条可回溯的事实。</p>
+<h2 id="收集论文">1 收集论文</h2>
+<p>研究方向覆盖几何、NeRF 和 3DGS 三条技术路线，分别纳入 5、9、6
+篇。论文年份为 2016—2025
+年。筛选时优先保留与事件相机三维结构、深度估计、场景表示或新视角合成直接相关、能找到论文原文入口且能定位方法或实验事实的研究。逐篇题名、年份、来源和筛选依据见<a
+href="论文清单_20篇.md">论文清单</a>。原始候选中的 S07、S08 没有纳入最终
+20 篇图谱，后续数量和应用评价均按这 20 篇统计。</p>
+<h2 id="构建知识图谱">2 构建知识图谱</h2>
+<h3 id="抽取与整理">2.1 抽取与整理</h3>
+<p>我为每篇论文记录“主语、原始关系、宾语、依据位置”，得到 20 份<a
+href="reextract/">逐篇抽取表</a>。例如 S04
+中有“EF-3DGS—输入—连续事件流（摘要）”和“EF-3DGS—场景表示—3D Gaussian
+Splatting（标题）”。<a
+href="reextract/build_aura_import.ps1">构建脚本</a>读取这些表和论文元信息，清理名称空格，合并部分同义实体，将“连续事件流”等归一为“事件相机事件流”，并按名称去重、分配节点
+ID。节点类别由规则判断；原始中文谓词映射为规范关系值，映射不上的关系保留为
+<code>RELATED_TO</code>，同时保留其 <code>raw_predicate</code>。</p>
+<h3 id="节点关系与来源">2.2 节点、关系与来源</h3>
+<p>最终 CSV 包含 <strong>703 个节点、774 条关系、45
+种规范关系值</strong>。节点属性为
+<code>id</code>、<code>name</code>、<code>category</code>、<code>doc_ids</code>。其中
+<code>doc_ids</code> 用 <code>|</code> 记录实体涉及的论文编号。</p>
+<table>
+<thead>
+<tr>
+<th>节点类别</th>
+<th>含义</th>
+<th style="text-align: right;">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Author</td>
+<td>作者</td>
+<td style="text-align: right;">78</td>
+</tr>
+<tr>
+<td>ChallengeOrScenario</td>
+<td>挑战或场景</td>
+<td style="text-align: right;">42</td>
+</tr>
+<tr>
+<td>Concept</td>
+<td>概念</td>
+<td style="text-align: right;">333</td>
+</tr>
+<tr>
+<td>Dataset</td>
+<td>数据集</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>方法</td>
+<td style="text-align: right;">92</td>
+</tr>
+<tr>
+<td>MetricOrLoss</td>
+<td>指标或损失</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr>
+<td>Paper</td>
+<td>论文</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>Sensor</td>
+<td>传感器</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr>
+<td>TaskOrOutput</td>
+<td>任务或输出</td>
+<td style="text-align: right;">82</td>
+</tr>
+</tbody>
+</table>
+<p>关系表保存起点 <code>source</code>、终点
+<code>target</code>、规范谓词 <code>type</code>、原始谓词
+<code>raw_predicate</code>、所属论文
+<code>paper_id</code>、论文标题、年份、会场、路线，以及
+<code>source_url</code>、<code>evidence_location</code>、<code>evidence</code>。<code>evidence</code>
+是三元组的结构化转述，不是原文逐字引文。下表列出最常见的规范谓词。</p>
+<table>
+<thead>
+<tr>
+<th>规范谓词</th>
+<th style="text-align: right;">关系数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RELATED_TO</code></td>
+<td style="text-align: right;">260</td>
+</tr>
+<tr>
+<td><code>AUTHORED_BY</code></td>
+<td style="text-align: right;">94</td>
+</tr>
+<tr>
+<td><code>MEASURED_BY</code></td>
+<td style="text-align: right;">66</td>
+</tr>
+<tr>
+<td><code>USES_METHOD</code></td>
+<td style="text-align: right;">54</td>
+</tr>
+<tr>
+<td><code>COMPARED_WITH</code></td>
+<td style="text-align: right;">49</td>
+</tr>
+<tr>
+<td><code>PRODUCES_OUTPUT</code></td>
+<td style="text-align: right;">36</td>
+</tr>
+<tr>
+<td><code>HAS_COMPONENT</code></td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr>
+<td><code>USES_INPUT</code></td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr>
+<td><code>PROPOSES</code></td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td><code>ADDRESSES_TASK</code></td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr>
+<td><code>USES_SENSOR</code></td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr>
+<td><code>USES_REPRESENTATION</code></td>
+<td style="text-align: right;">8</td>
+</tr>
+</tbody>
+</table>
+<p>Neo4j 中的边统一使用实际关系类型
+<code>:RELATED_TO</code>；上表的规范谓词保存在边属性
+<code>r.type</code>。其中 <strong>260
+条</strong>关系的规范谓词仍较宽泛，具体表达可查看
+<code>r.raw_predicate</code>。</p>
+<h3 id="结构与来源核验">2.3 结构与来源核验</h3>
+<p><a href="aura_import_reextracted/audit_aura.py">审计脚本</a>将导出
+CSV 与 20 份抽取表逐项对照：703 个节点 ID 唯一；774
+条关系的两端均能找到节点；按“起点、终点、原始谓词、论文”判断没有重复；每条边的原始谓词、证据位置、原文
+URL 与逐篇表一致。Aura 补导脚本运行后报告数据库中存在 703 节点、774
+关系、20 篇论文和 45 种规范谓词。该核验确认结构与记录可追溯，不能代替对
+774 条学术陈述逐句阅读原文。</p>
+<h2 id="图谱可视化展示">3 图谱可视化展示</h2>
+<p>可双击<a href="图谱可视化_20篇.html">本地图谱展示</a>，在“20
+篇概览”与“逐篇局部图”之间切换。概览展示论文及其提出的方法，局部图可查看
+S04
+的方法、输入、任务、技术与评估关系。点击节点或连线可查看属性、原始谓词、原文链接和证据位置。<a
+href="事件相机三维重建-基于20篇论文的知识图谱构建与应用.pptx">最新展示
+PPT</a>已按原文件复制，包含图谱与两项应用展示；PPT 第 5
+页局部案例的图片内容与 S04 标题不一致，报告以 CSV 和本地图谱的 S04
+关系为准。</p>
+<p>在 Neo4j Aura 中，节点先以 <code>:Entity</code> 导入，后按
+<code>category</code> 增加 <code>:Paper</code>、<code>:Method</code>
+等标签。展示 S04 的实际关系可运行：</p>
+<pre class="cypher"><code>MATCH (a:Entity)-[r:RELATED_TO]-&gt;(b:Entity)
+WHERE r.paper_id = &#39;S04&#39;
+RETURN a, r, b LIMIT 80;</code></pre>
+<p>局部案例中，S04 论文提出 EF-3DGS；EF-3DGS
+使用视频帧和事件相机事件流，面向自由轨迹场景重建与新视角合成，并采用 3D
+Gaussian Splatting 表示。相应边可通过
+<code>paper_id</code>、<code>source_url</code> 和
+<code>evidence_location</code> 追溯。浏览器本地图是用导入 CSV
+绘制的互动图，和 Aura 中的数据同源，不能充当 Aura 网页截图。</p>
+<h2 id="应用一研究路线分类">4 应用一：研究路线分类</h2>
+<p><strong>输入与输出。</strong>
+输入为一篇论文编号及其在图谱中连接的可见实体；输出为“几何、NeRF、3DGS”之一，并保留逐篇预测和解释特征。</p>
+<p><strong>如何使用图谱。</strong> 程序将论文连接的实体节点 ID
+作为二值特征，仅利用该实体是否出现。为避免直接读取答案，排除论文和作者节点、指标或损失节点、该论文提出的方法、数字开头的实体，以及名称含
+NeRF、Gaussian、3DGS、高斯、辐射场的实体。每折留出一篇，仅用其他 19
+篇计算类别先验和共享实体在各类别的频次；拉普拉斯平滑系数为 1。代码见<a
+href="aura_import_reextracted/applications_20.py">分类与生成程序</a>。</p>
+<p><strong>评价结果。</strong> 20 折留一论文验证正确
+<strong>14/20，准确率 70%</strong>；每折只猜训练集中最多类别的基线正确
+<strong>9/20，准确率
+45%</strong>。混淆矩阵如下，行是真实类别，列是预测类别。</p>
+<table>
+<thead>
+<tr>
+<th>真实类别</th>
+<th style="text-align: right;">几何</th>
+<th style="text-align: right;">NeRF</th>
+<th style="text-align: right;">3DGS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>几何</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>NeRF</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>3DGS</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>案例与不足。</strong>
+G05（DERD-Net）预测为几何，真实也是几何。它与 G01 共享“视差空间图
+DSI”，与 G04 共享“三维卷积”，与 G01/G02
+共享“平均深度误差”等图谱实体。G03、G04、N02、N05、N06、N09
+被误分；样本仅 20 篇，实体命名和抽取范围会影响结果，70%
+不能代表新论文的外部泛化能力。部分用于解释的“平均深度误差”等实体在节点表中被规则划到
+<code>TaskOrOutput</code>，说明类别规则仍有改进空间。</p>
+<h2 id="应用二基于图谱的有来源问答生成">5
+应用二：基于图谱的有来源问答生成</h2>
+<p><strong>输入与输出。</strong>
+输入为论文编号及关于方法、输入、任务、技术或评估数据的问题；输出为图谱事实组织的中文回答，每个事实附论文链接和原文位置。可在<a
+href="aura_import_reextracted/第4项_浏览器交互展示.html">离线交互页面</a>选择论文并输入问题。</p>
+<p><strong>如何使用图谱。</strong> 程序从该论文的
+<code>PROPOSES</code>、<code>USES_INPUT</code>、<code>ADDRESSES_TASK</code>、<code>PRODUCES_OUTPUT</code>、<code>USES_REPRESENTATION</code>、<code>HAS_COMPONENT</code>、<code>EVALUATED_ON</code>
+等边中筛选事实，使用固定模板组织文字。没有对应边时不补写。离线页面按提问词筛选已有事实；这一应用不调用大模型。</p>
+<p><strong>评价结果。</strong> 共生成 <strong>20 个答案、131
+条事实</strong>。逐字段核对显示 131/131
+条事实可以匹配图谱边，并带来源链接和位置；方法、输入、任务或输出字段覆盖
+20/20 篇，明确的 <code>EVALUATED_ON</code> 数据集边只覆盖 5/20
+篇。结构可回溯率是
+100%，只说明答案有图谱依据，不证明原文学术事实都已逐句人工复核。</p>
+<p><strong>案例与不足。</strong> 对 S04，生成结果包含
+EF-3DGS、视频帧、事件相机事件流、自由轨迹场景重建、新视角合成、3D
+Gaussian Splatting、事件生成模型 EGM，并给出摘要、标题、第 4
+节等依据位置。模板可组织已有事实，但不能推导新结论；缺少数据集边的论文不会得到评估数据句子。若抽取事实有误，回答也会继承错误。自由提问只在本地图谱事实范围内有效。</p>
+<h2 id="复现与交付">6 复现与交付</h2>
+<p>本文件夹包含论文清单、20 份逐篇抽取表、导入 CSV、审计记录、可视化
+HTML、最新 PPT、分类与生成代码、机器可读结果和逐篇答案。运行方式见<a
+href="README_运行与提交.md">运行说明</a>。公开上传副本已去除姓名和学号；本地原始文件保留原有内容。</p>
+</body>
+</html>
